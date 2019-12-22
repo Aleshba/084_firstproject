@@ -11,34 +11,33 @@
 |
 */
 
-
-
-Route::get('123','Hellocontroller@gettnigvale');
-Route::post('/submit','Hellocontroller@index');
-
 Route::get('/', function () {
-    return view('contects');
+    return view('sign-up');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/index', function () {
+    return view('index');
 });
-
-Route::get('/registration', function () {
-    return view('registration');
+Route::get('/services', function () {
+    return view('services');
+});
+Route::get('/gallery1', function () {
+    return view('gallery1');
 });
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/contacts', function () {
-    return view('contacts');
-});
-Route::get('/image', function () {
-    return view('image');
-});
-Route::get('data/{id}',function($id) {
-   echo 'ID: '.$id;
+Route::get('/contact', function () {
+    return view('contact');
 });
 
+Route::get('/confirmBooking', function () {
+    return view('confirmBooking');
+});
 
-?>
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::POST('/insert', 'bookingController@insert');
+
+Route::POST('/sendMessage', 'messageController@sendMessage');
